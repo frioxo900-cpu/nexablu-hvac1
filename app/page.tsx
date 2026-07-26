@@ -1,46 +1,71 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main>
 
+      {/* Hero Section */}
+
       <section className="bg-gradient-to-r from-blue-700 to-sky-500 text-white">
 
-        <div className="max-w-7xl mx-auto px-6 py-28">
+        <div className="max-w-7xl mx-auto px-6 py-28 grid lg:grid-cols-2 gap-12 items-center">
 
-          <h1 className="text-6xl font-bold leading-tight">
+          <div>
 
-            Complete HVAC Solutions
+            <p className="uppercase tracking-widest text-orange-300 font-semibold mb-4">
+              Welcome to Nexablu Trading LLP
+            </p>
 
-            <br />
+            <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
 
-            Under One Roof
+              Complete HVAC
+              <br />
 
-          </h1>
+              Solutions
+              <span className="text-orange-400"> Under One Roof</span>
 
-          <p className="mt-8 text-xl max-w-2xl">
+            </h1>
 
-            Wholesale & Retail Supplier of Air Conditioners,
-            Copper Pipes,
-            Copper Fittings,
-            Ducting Materials,
-            Refrigerant Gas,
-            HVAC Accessories
-            and Installation Materials.
+            <p className="mt-8 text-lg text-blue-100 leading-8">
 
-          </p>
+              Wholesale & Retail Supplier of Air Conditioners,
+              Copper Pipes,
+              Copper Fittings,
+              Ducting Materials,
+              Refrigerant Gas,
+              Insulation Materials,
+              HVAC Accessories &
+              Installation Products.
 
-          <div className="mt-10 flex gap-5">
+            </p>
 
-            <button className="bg-orange-500 hover:bg-orange-600 px-8 py-4 rounded-lg">
+            <div className="mt-10 flex flex-wrap gap-5">
 
-              Explore Products
+              <Link
+                href="/products"
+                className="bg-orange-500 hover:bg-orange-600 px-8 py-4 rounded-lg font-semibold transition"
+              >
+                Explore Products
+              </Link>
 
-            </button>
+              <Link
+                href="/contact"
+                className="border border-white px-8 py-4 rounded-lg hover:bg-white hover:text-blue-700 transition"
+              >
+                Request Quote
+              </Link>
 
-            <button className="border px-8 py-4 rounded-lg">
+            </div>
 
-              Contact Us
+          </div>
 
-            </button>
+          <div>
+
+            <img
+              src="/images/hero-ac.png"
+              alt="HVAC"
+              className="w-full"
+            />
 
           </div>
 
