@@ -1,20 +1,28 @@
 import "./globals.css";
-import { ReactNode } from "react";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 export const metadata = {
   title: "Nexablu Trading LLP",
-  description:
-    "Wholesale & Retail HVAC Supplies in Mumbai",
+  description: "HVAC Supplies & Solutions",
 };
 
 export default function RootLayout({
   children,
-}: {
-  children: ReactNode;
-}) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+
+        <Header />
+
+        {children}
+
+        <Footer />
+
+      </body>
     </html>
   );
 }
