@@ -1,35 +1,52 @@
 export default function Home() {
   return (
-    <main className="hero">
+    <main>
 
-      <div className="container">
+      <section className="bg-gradient-to-r from-blue-700 to-sky-500 text-white">
 
-        <h1>
+        <div className="max-w-7xl mx-auto px-6 py-28">
 
-          Complete HVAC Solutions
-          Under One Roof
+          <h1 className="text-6xl font-bold leading-tight">
 
-        </h1>
+            Complete HVAC Solutions
 
-        <p>
+            <br />
 
-          Wholesale & Retail Supplier of
+            Under One Roof
 
-          Air Conditioners,
-          Copper Pipes,
-          Ducting Material,
-          Refrigerant Gas,
-          HVAC Accessories.
+          </h1>
 
-        </p>
+          <p className="mt-8 text-xl max-w-2xl">
 
-        <button>
+            Wholesale & Retail Supplier of Air Conditioners,
+            Copper Pipes,
+            Copper Fittings,
+            Ducting Materials,
+            Refrigerant Gas,
+            HVAC Accessories
+            and Installation Materials.
 
-          Explore Products
+          </p>
 
-        </button>
+          <div className="mt-10 flex gap-5">
 
-      </div>
+            <button className="bg-orange-500 hover:bg-orange-600 px-8 py-4 rounded-lg">
+
+              Explore Products
+
+            </button>
+
+            <button className="border px-8 py-4 rounded-lg">
+
+              Contact Us
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
 
     </main>
   );
