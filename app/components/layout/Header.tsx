@@ -1,40 +1,43 @@
-import Link from "next/link";
+"use client";
 
-const menu = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Products", href: "/products" },
-  { name: "Brands", href: "/brands" },
-  { name: "Services", href: "/services" },
-  { name: "Gallery", href: "/gallery" },
-  { name: "Contact", href: "/contact" },
-];
+import Link from "next/link";
+import { useState } from "react";
 
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const menuItems = [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Products", href: "/products" },
+    { name: "Brands", href: "/brands" },
+    { name: "Services", href: "/services" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "Contact", href: "/contact" },
+  ];
+
   return (
     <>
+      {/* Top Bar */}
       <div className="bg-blue-700 text-white text-sm">
-        <div className="max-w-7xl mx-auto px-6 py-2 flex justify-between">
+        <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-2">
           <div>
-            📍 Plot No.312, Shop No.5-B, Kurla West, Mumbai
+            📍 Plot No.312, Shop No.5-B, Near Kurla Court, LBS Marg, Kurla West,
+            Mumbai – 400070
           </div>
 
-          <div className="flex gap-6">
-            <a href="tel:7977709400">
-              📞 7977709400
-            </a>
-
-            <a href="tel:8928167041">
-              📞 8928167041
-            </a>
+          <div className="hidden md:flex gap-6">
+            <a href="tel:7977709400">📞 7977709400</a>
+            <a href="tel:8928167041">📞 8928167041</a>
           </div>
         </div>
       </div>
 
-      <header className="bg-white shadow-md sticky top-0 z-50">
-
+      {/* Navigation */}
+      <header className="sticky top-0 bg-white shadow-md z-50">
         <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-5">
 
+          {/* Logo */}
           <Link
             href="/"
             className="text-3xl font-bold text-blue-700"
@@ -42,38 +45,56 @@ export default function Header() {
             NEXABLU
           </Link>
 
-          <nav>
+          {/* Desktop Menu */}
+          <nav className="hidden lg:flex gap-8 font-medium">
 
-            <ul className="hidden md:flex gap-8 font-medium">
-
-              {menu.map((item) => (
-
-                <li key={item.name}>
-
-                  <Link
-                    href={item.href}
-                    className="hover:text-blue-700 transition"
-                  >
-                    {item.name}
-                  </Link>
-
-                </li>
-
-              ))}
-
-            </ul>
+            {menuItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="hover:text-blue-700 transition"
+              >
+                {item.name}
+              </Link>
+            ))}
 
           </nav>
 
-          <a
+          {/* Quote Button */}
+          <Link
             href="/contact"
-            className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-3 rounded-lg"
+            className="hidden lg:block bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg"
           >
-            Get Quote
-          </a>
+            Request Quote
+          </Link>
 
+          {/* Mobile Button */}
+          <button
+            className="lg:hidden text-2xl"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            ☰
+          </button>
         </div>
 
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <div className="lg:hidden border-t bg-white">
+            <div className="flex flex-col px-6 py-4 gap-4">
+
+              {menuItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
+
+            </div>
+          </div>
+        )}
       </header>
     </>
   );
